@@ -1,0 +1,14 @@
+public class Счетчик implements AutoCloseable {
+    private int значение = 0;
+
+    public void add() {
+        значение++;
+    }
+
+    @Override
+    public void close() {
+        if (значение == 0) {
+            throw new IllegalStateException("Ресурс не был использован или остался открытым.");
+        }
+    }
+}
